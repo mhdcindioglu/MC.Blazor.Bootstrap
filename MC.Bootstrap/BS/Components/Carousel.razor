@@ -1,0 +1,65 @@
+﻿<CascadingValue TValue="Carousel" Name="Parent" Value="this">
+    <div id="@id" class="carousel slide @(Fade ? "carousel-fade" : null) @(Theme == CarouselTheme.Dark ? "carousel-dark" : null)" data-bs-ride="@(Ride == CarouselRide.Auto ? "carousel" : Ride == CarouselRide.Start ? "true" : null)">
+        @if (ShowIndicators)
+        {
+            <div class="carousel-indicators">
+                @foreach (var slide in _Slides)
+                {
+                    <button type="button" data-bs-target="#@(id)" data-bs-slide-to="@(slide.Order)" class="@(slide.Order == 0 ? "active" : "")" aria-current="@(slide.Order == 0 ? "true" : null)" aria-label="Slide @(slide.Order)"></button>
+                }
+            </div>
+        }
+        <div class="carousel-inner">
+            @foreach (var slide in _Slides)
+            {
+                <div class="carousel-item @(slide.Order == 0 ? "active" : "")" data-bs-interval="@slide.Interval">
+                    @slide.ChildContent
+                </div>
+            }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#@id" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#@id" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    @Slides
+</CascadingValue>
+@code {
+    string id = $"carousel-{Guid.NewGuid()}";
+    [Parameter] public bool ShowIndicators { get; set; } = false;
+    [Parameter] public bool Fade { get; set; }
+    [Parameter] public CarouselRide Ride { get; set; }
+    [Parameter] public CarouselTheme Theme { get; set; }
+    [Parameter] public required RenderFragment Slides { get; set; }
+    public List<CarouselSlide> _Slides = [];
+    internal void Add(CarouselSlide slide)
+    {
+        _Slides.Add(slide);
+        StateHasChanged();
+    }
+    public enum CarouselRide
+    {
+        Auto,
+        Start,
+    }
+    public enum CarouselTheme
+    {
+        Light,
+        Dark,
+    }
+}
+
+
+@* <Carousel ShowIndicators="true" Fade="true" Ride="Carousel.CarouselRide.Auto">
+    <Slides>
+        <CarouselSlide Interval="500"><img src="https://picsum.photos/id/1/800/400" style="width: 100%" /></CarouselSlide>
+        <CarouselSlide Interval="2500"><img src="https://picsum.photos/id/2/800/400" style="width: 100%" /></CarouselSlide>
+        <CarouselSlide Interval="5000"><img src="https://picsum.photos/id/3/800/400" style="width: 100%" /></CarouselSlide>
+        <CarouselSlide Interval="1000"><img src="https://picsum.photos/id/4/800/400" style="width: 100%" /></CarouselSlide>
+        <CarouselSlide Interval="2000"><img src="https://picsum.photos/id/5/800/400" style="width: 100%" /></CarouselSlide>
+    </Slides>
+</Carousel> *@

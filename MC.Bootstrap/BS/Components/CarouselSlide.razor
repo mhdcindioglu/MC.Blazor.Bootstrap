@@ -1,0 +1,16 @@
+﻿
+
+@code {
+    [Parameter] public EventCallback OnClick { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public int Interval { get; set; } = 5000;
+    [CascadingParameter(Name = "Parent")] public Carousel Parent { get; set; } = default!;
+    internal string ID = $"navigation-tab-{Guid.NewGuid()}";
+    public int Order{ get; set; }
+
+    protected override void OnInitialized()
+    {
+        Order = Parent._Slides.Count;
+        Parent.Add(this);
+    }
+}

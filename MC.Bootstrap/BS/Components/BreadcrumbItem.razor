@@ -1,0 +1,16 @@
+﻿<li class="breadcrumb-item @(string.IsNullOrEmpty(Href) ? "active" : null)" aria-current="@(string.IsNullOrEmpty(Href) ? "page" : null)">
+    @if (!string.IsNullOrEmpty(Href))
+    {
+        <a href="@Href">@ChildContent</a>
+    }
+    else
+    {
+        @ChildContent
+    }
+</li>
+
+@code {
+    [Parameter] public required RenderFragment ChildContent { get; set; }
+    [Parameter] public string? Href { get; set; }
+
+}

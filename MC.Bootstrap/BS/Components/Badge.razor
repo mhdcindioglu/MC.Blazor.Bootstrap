@@ -1,0 +1,38 @@
+﻿<span class="badge text-bg-@(BgColor.ToString().ToLower()) @positionClass @(Rounded ? "rounded-pill" : null) @(Type == BadgeType.Circle ? "p-2 border border-light rounded-circle" : null)" style="@style">
+    @if(Type == BadgeType.Normal)
+    {
+        @ChildContent
+    }
+    else
+    {
+        <span class="visually-hidden">New alerts</span>
+    }
+</span>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public bool Rounded { get; set; }
+    [Parameter] public Position Position { get; set; } = Position.Default;
+    [Parameter] public BgColor BgColor { get; set; } = BgColor.Secondary;
+    [Parameter] public BadgeType Type { get; set; } = BadgeType.Normal;
+    string? positionClass => Position switch
+    {
+        Position.StartTop => "position-absolute translate-middle top-0 start-0",
+        Position.MiddleTop => "position-absolute translate-middle top-0 start-50",
+        Position.EndTop => "position-absolute translate-middle top-0 start-100",
+        Position.StartMiddle => "position-absolute translate-middle top-50 start-0",
+        Position.Middle => "position-absolute translate-middle top-50 start-50",
+        Position.EndMiddle => "position-absolute translate-middle top-50 start-100",
+        Position.StartBottom => "position-absolute translate-middle top-100 start-0",
+        Position.MiddleBottom => "position-absolute translate-middle top-100 start-50",
+        Position.EndBottom => "position-absolute translate-middle top-100 start-100",
+        _ => null,
+    };
+    string? style => $"";
+
+    public enum BadgeType
+    {
+        Normal,
+        Circle,
+    }
+}

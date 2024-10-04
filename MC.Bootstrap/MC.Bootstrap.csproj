@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<PackageId>MC.Bootstrap</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Muhammed Cindioglu</Authors>
+		<Company>Cindioglu Solutions</Company>
+		<Description>Bootstrap Blazor Components.</Description>
+		<PackageTags>blazor;component;bootstrap;</PackageTags>
+		<RepositoryUrl>https://github.com/mhdcindioglu/MC.Bootstrap</RepositoryUrl>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.8" />
+	</ItemGroup>
+
+</Project>

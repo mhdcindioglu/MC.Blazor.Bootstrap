@@ -1,0 +1,20 @@
+﻿<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#@id" aria-expanded="true" aria-controls="@id">
+            @Header
+        </button>
+    </h2>
+    <div id="@id" class="accordion-collapse collapse" data-bs-parent="@(AlwaysOpen ? null : $"#{ParentID}")">
+        <div class="accordion-body">
+            @ChildContent
+        </div>
+    </div>
+</div>
+
+@code {
+    string id = $"collapse-{Guid.NewGuid().ToString()}";
+    [Parameter] public string Header { get; set; } = "Header";
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [CascadingParameter(Name = "ParentID")] public string? ParentID { get; set; }
+    [CascadingParameter(Name = "AlwaysOpen")] public bool AlwaysOpen { get; set; }
+}

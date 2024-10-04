@@ -1,0 +1,22 @@
+﻿<div class="collapse @(Horizontal ? "collapse-horizontal" : "")" id="@ID">
+    <div class="card card-body" style="width: @Width;">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter] public required string ID { get; set; }
+    [Parameter] public required RenderFragment ChildContent { get; set; }
+    [Parameter] public bool Horizontal { get; set; }
+    [Parameter] public string Width { get; set; } = "auto";
+}
+
+@* <CollapseTarget ID="id1">
+    Open
+</CollapseTarget>
+
+<CollapseContent ID="id1">
+    <div class="card card-body">
+        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+    </div>
+</CollapseContent> *@

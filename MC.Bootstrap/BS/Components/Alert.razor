@@ -1,0 +1,25 @@
+﻿<div class="alert alert-@(Color.ToString().ToLower()) @(ShowCloseButton ? "alert-dismissible fade show" : null)" role="alert">
+    @ChildContent
+    @if (ShowCloseButton)
+    {
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    }
+</div>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public AlertColor Color { get; set; } = AlertColor.Primary;
+    [Parameter] public bool ShowCloseButton { get; set; }
+
+    public enum AlertColor
+    {
+        Primary,
+        Secondary,
+        Success,
+        Danger,
+        Warning,
+        Info,
+        Light,
+        Dark,
+    }
+}

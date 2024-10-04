@@ -1,0 +1,10 @@
+﻿<nav aria-label="breadcrumb" style="@(!string.IsNullOrEmpty(Divider) ? $"--bs-breadcrumb-divider: '{Divider}';" : null)">
+    <ol class="breadcrumb">
+        @Items
+    </ol>
+</nav>
+
+@code {
+    [Parameter] public RenderFragment? Items { get; set; }
+    [Parameter] public string? Divider { get; set; }
+}

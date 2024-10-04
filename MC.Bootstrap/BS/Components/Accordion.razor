@@ -1,0 +1,13 @@
+﻿<div class="accordion@(Flush ? " accordion-flush" : null)" id="@id">
+    <CascadingValue TValue="string" Name="ParentID" Value="@id">
+        <CascadingValue TValue="bool" Name="AlwaysOpen" Value="@AlwaysOpen">
+            @Items
+        </CascadingValue>
+    </CascadingValue>
+</div>
+@code {
+    string id = $"accordion-{Guid.NewGuid().ToString()}";
+    [Parameter] public RenderFragment? Items { get; set; }
+    [Parameter] public bool Flush { get; set; }
+    [Parameter] public bool AlwaysOpen { get; set; }
+}

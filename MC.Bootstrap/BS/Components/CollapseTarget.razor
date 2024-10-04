@@ -1,0 +1,18 @@
+﻿<span class="" data-bs-toggle="collapse" data-bs-target="#@ID" aria-expanded="false" aria-controls="@ID" style="cursor: pointer">
+    @ChildContent
+</span>
+
+@code {
+    [Parameter] public required string ID { get; set; }
+    [Parameter] public required RenderFragment ChildContent { get; set; }
+}
+
+@* <CollapseTarget ID="id1">
+    Open
+</CollapseTarget>
+
+<CollapseContent ID="id1">
+    <div class="card card-body">
+        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+    </div>
+</CollapseContent> *@

@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Components.Web.Virtualization
+<CascadingValue TValue="Navigation" Name="Parent" Value="this">
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                @foreach (var tab in _Tabs)
+                {
+                    <li class="nav-item" id="@tab.ID">
+                        <button class="nav-link @(tab.Selected ? "active" : null) @(tab.Disabled ? "disabled" : null)" aria-disabled="@tab.Disabled" @onclick="@(() => TabClicked(tab))">@tab.Header</button>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="card-body">
+            @foreach (var tab in _Tabs.Where(x => x.Selected).ToList())
+            {
+                @if (tab.ChildContent is not null)
+                {
+                    @tab.ChildContent
+                }
+            }
+        </div>
+    </div>
+    @Tabs
+</CascadingValue>
+
+@code {
+    [Parameter] public required RenderFragment Tabs { get; set; }
+    public List<NavigationTab> _Tabs = [];
+    internal void Add(NavigationTab tab)
+    {
+        _Tabs.Add(tab);
+        StateHasChanged();
+    }
+
+    internal void TabClicked(NavigationTab tab)
+    {
+        _Tabs.ForEach(x => x.Selected = false);
+        tab.Selected = true;
+        StateHasChanged();
+    }
+}
