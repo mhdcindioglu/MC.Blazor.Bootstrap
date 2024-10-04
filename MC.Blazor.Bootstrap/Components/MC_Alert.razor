@@ -8,10 +8,10 @@
 
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
-    [Parameter] public AlertColor Color { get; set; } = AlertColor.Primary;
+    [Parameter] public MC_AlertColor Color { get; set; } = MC_AlertColor.Primary;
     [Parameter] public bool ShowCloseButton { get; set; }
 
-    public enum AlertColor
+    public enum MC_AlertColor
     {
         Primary,
         Secondary,

@@ -1,43 +1,43 @@
 ﻿<span class="" data-bs-toggle="collapse" data-bs-target="#@id" aria-expanded="false" aria-controls="@id" style="cursor: pointer">
-    @CollapseTarget
+    @MC_CollapseTarget
 </span>
 <div class="collapse @(Horizontal ? "collapse-horizontal" : "")" id="@id">
     <div class="card card-body" style="width: @Width;">
-        @CollapseContent
+        @MC_CollapseContent
     </div>
 </div>
 
 @code {
     string id = $"collapse-{Guid.NewGuid()}";
-    [Parameter] public required RenderFragment CollapseTarget { get; set; }
-    [Parameter] public required RenderFragment CollapseContent { get; set; }
+    [Parameter] public required RenderFragment MC_CollapseTarget { get; set; }
+    [Parameter] public required RenderFragment MC_CollapseContent { get; set; }
     [Parameter] public bool Horizontal { get; set; }
     [Parameter] public string Width { get; set; } = "auto";
 }
 
-@* <CollapseTarget ID="id1">
+@* <MC_CollapseTarget ID="id1">
     Open
-</CollapseTarget>
+</MC_CollapseTarget>
 
 <table class="table">
     <tr>
         <td>
-            <Collapse>
-                <CollapseTarget>
+            <MC_Collapse>
+                <MC_CollapseTarget>
                     Open
-                </CollapseTarget>
-                <CollapseContent>
+                </MC_CollapseTarget>
+                <MC_CollapseContent>
                     <div class="card card-body">
                         Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
                     </div>
-                </CollapseContent>
-            </Collapse>
+                </MC_CollapseContent>
+            </MC_Collapse>
         </td>
     </tr>
 </table>
 
-<CollapseContent ID="id1">
+<MC_CollapseContent ID="id1">
     <div class="card card-body">
         Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
     </div>
-</CollapseContent> *@
+</MC_CollapseContent> *@

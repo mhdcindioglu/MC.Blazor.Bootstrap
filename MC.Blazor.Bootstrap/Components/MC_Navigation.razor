@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Components.Web.Virtualization
-<CascadingValue TValue="Navigation" Name="Parent" Value="this">
+<CascadingValue TValue="MC_Navigation" Name="Parent" Value="this">
     <div class="card text-center">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
@@ -26,14 +26,14 @@
 
 @code {
     [Parameter] public required RenderFragment Tabs { get; set; }
-    public List<NavigationTab> _Tabs = [];
-    internal void Add(NavigationTab tab)
+    public List<MC_NavigationTab> _Tabs = [];
+    internal void Add(MC_NavigationTab tab)
     {
         _Tabs.Add(tab);
         StateHasChanged();
     }
 
-    internal void TabClicked(NavigationTab tab)
+    internal void TabClicked(MC_NavigationTab tab)
     {
         _Tabs.ForEach(x => x.Selected = false);
         tab.Selected = true;

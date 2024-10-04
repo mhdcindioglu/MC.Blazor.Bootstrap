@@ -5,16 +5,15 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 
-		<PackageId>MC.Bootstrap</PackageId>
-		<Version>1.0.0</Version>
+		<PackageId>MC.Blazor.Bootstrap</PackageId>
+		<Version>1.0.3</Version>
 		<Authors>Muhammed Cindioglu</Authors>
 		<Company>Cindioglu Solutions</Company>
-		<Description>Bootstrap Blazor Components.</Description>
+		<Description>MC Blazor Bootstrap(v5.3.2) Components.</Description>
 		<PackageTags>blazor;component;bootstrap;</PackageTags>
-		<RepositoryUrl>https://github.com/mhdcindioglu/MC.Bootstrap</RepositoryUrl>
+		<RepositoryUrl>https://github.com/mhdcindioglu/MC.Blazor.Bootstrap</RepositoryUrl>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
-
 
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />

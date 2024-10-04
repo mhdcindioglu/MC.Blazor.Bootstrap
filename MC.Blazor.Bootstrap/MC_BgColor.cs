@@ -1,6 +1,6 @@
-﻿namespace MC.Bootstrap.BS;
+﻿namespace MC.Blazor.Bootstrap;
 
-public enum BgColor
+public enum MC_BgColor
 {
     Primary,
     Secondary,

@@ -1,5 +1,5 @@
-﻿<CascadingValue TValue="Carousel" Name="Parent" Value="this">
-    <div id="@id" class="carousel slide @(Fade ? "carousel-fade" : null) @(Theme == CarouselTheme.Dark ? "carousel-dark" : null)" data-bs-ride="@(Ride == CarouselRide.Auto ? "carousel" : Ride == CarouselRide.Start ? "true" : null)">
+﻿<CascadingValue TValue="MC_Carousel" Name="Parent" Value="this">
+    <div id="@id" class="carousel slide @(Fade ? "carousel-fade" : null) @(Theme == MC_CarouselTheme.Dark ? "carousel-dark" : null)" data-bs-ride="@(Ride == MC_CarouselRide.Auto ? "carousel" : Ride == MC_CarouselRide.Start ? "true" : null)">
         @if (ShowIndicators)
         {
             <div class="carousel-indicators">
@@ -32,21 +32,21 @@
     string id = $"carousel-{Guid.NewGuid()}";
     [Parameter] public bool ShowIndicators { get; set; } = false;
     [Parameter] public bool Fade { get; set; }
-    [Parameter] public CarouselRide Ride { get; set; }
-    [Parameter] public CarouselTheme Theme { get; set; }
+    [Parameter] public MC_CarouselRide Ride { get; set; }
+    [Parameter] public MC_CarouselTheme Theme { get; set; }
     [Parameter] public required RenderFragment Slides { get; set; }
-    public List<CarouselSlide> _Slides = [];
-    internal void Add(CarouselSlide slide)
+    public List<MC_CarouselSlide> _Slides = [];
+    internal void Add(MC_CarouselSlide slide)
     {
         _Slides.Add(slide);
         StateHasChanged();
     }
-    public enum CarouselRide
+    public enum MC_CarouselRide
     {
         Auto,
         Start,
     }
-    public enum CarouselTheme
+    public enum MC_CarouselTheme
     {
         Light,
         Dark,
@@ -54,12 +54,12 @@
 }
 
 
-@* <Carousel ShowIndicators="true" Fade="true" Ride="Carousel.CarouselRide.Auto">
+@* <MC_Carousel ShowIndicators="true" Fade="true" Ride="Carousel.CarouselRide.Auto">
     <Slides>
-        <CarouselSlide Interval="500"><img src="https://picsum.photos/id/1/800/400" style="width: 100%" /></CarouselSlide>
-        <CarouselSlide Interval="2500"><img src="https://picsum.photos/id/2/800/400" style="width: 100%" /></CarouselSlide>
-        <CarouselSlide Interval="5000"><img src="https://picsum.photos/id/3/800/400" style="width: 100%" /></CarouselSlide>
-        <CarouselSlide Interval="1000"><img src="https://picsum.photos/id/4/800/400" style="width: 100%" /></CarouselSlide>
-        <CarouselSlide Interval="2000"><img src="https://picsum.photos/id/5/800/400" style="width: 100%" /></CarouselSlide>
+        <MC_CarouselSlide Interval="500"><img src="https://picsum.photos/id/1/800/400" style="width: 100%" /></MC_CarouselSlide>
+        <MC_CarouselSlide Interval="2500"><img src="https://picsum.photos/id/2/800/400" style="width: 100%" /></MC_CarouselSlide>
+        <MC_CarouselSlide Interval="5000"><img src="https://picsum.photos/id/3/800/400" style="width: 100%" /></MC_CarouselSlide>
+        <MC_CarouselSlide Interval="1000"><img src="https://picsum.photos/id/4/800/400" style="width: 100%" /></MC_CarouselSlide>
+        <MC_CarouselSlide Interval="2000"><img src="https://picsum.photos/id/5/800/400" style="width: 100%" /></MC_CarouselSlide>
     </Slides>
-</Carousel> *@
+</MC_Carousel> *@

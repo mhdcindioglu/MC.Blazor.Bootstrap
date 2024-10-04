@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MC.Bootstrap", "MC.Bootstrap\MC.Bootstrap.csproj", "{21591B3E-3ACA-47BC-BE13-16B7506060EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MC.Blazor.Bootstrap", "MC.Blazor.Bootstrap\MC.Blazor.Bootstrap.csproj", "{21591B3E-3ACA-47BC-BE13-16B7506060EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

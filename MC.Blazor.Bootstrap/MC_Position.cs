@@ -1,6 +1,6 @@
-﻿namespace MC.Bootstrap.BS;
+﻿namespace MC.Blazor.Bootstrap;
 
-public enum Position
+public enum MC_Position
 {
     Default,
     StartTop,

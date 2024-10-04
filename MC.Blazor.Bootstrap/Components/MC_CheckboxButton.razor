@@ -1,4 +1,4 @@
-﻿@using static MC.Bootstrap.BS.Components.Button
+﻿@using static MC.Blazor.Bootstrap.Components.MC_Button
 <input type="checkbox" class="btn-check" id="@id" autocomplete="off" @onclick="OnClick">
 <label class="btn btn-outline-@(Color.ToString().ToLower())" for="@id">@ChildContent</label>
 
@@ -6,7 +6,7 @@
     string id = $"checkbox-{Guid.NewGuid().ToString()}";
     [Parameter] public required bool Value { get; set; }
     [Parameter] public required RenderFragment ChildContent { get; set; }
-    [Parameter] public ButtonColor Color { get; set; }
+    [Parameter] public MC_ButtonColor Color { get; set; }
     [Parameter] public EventCallback<bool> ValueChanged { get; set; }
     async Task OnClick()
     {
